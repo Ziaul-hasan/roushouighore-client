@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import logo from '../../../assets/chef logo.png';
-import bgimg from '../../../assets/chef background image.jpg';
+import bgimg from '../../../assets/chef background image overlay.jpg';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import './Header.css'
