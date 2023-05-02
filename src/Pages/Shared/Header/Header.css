@@ -1,0 +1,11 @@
+.background-img img{
+    height: 700px;
+    width: 100%;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 640px) {
+    .background-img img{
+        height: 500px;
+    }
+}
