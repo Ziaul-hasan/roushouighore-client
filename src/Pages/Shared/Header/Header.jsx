@@ -21,7 +21,7 @@ const Header = () => {
                             (open ? <HiX className='md:hidden text-white w-8 h-8'></HiX> : <HiMenuAlt3 className='md:hidden text-white w-6 h-6'></HiMenuAlt3>)
                         }
                     </div>
-                    <ul className={`md:inline-flex absolute md:static ${open ? 'top-20 left-0 right-0 ps-10' : '-top-44 left-0 right-0 ps-10'} md:space-x-8 py-4 text-white text-xl md:bg-transparent bg-black bg-opacity-25`}>
+                    <ul className={`md:inline-flex absolute md:static duration-100 ${open ? 'top-20 left-0 right-0 ps-10' : '-top-44 left-0 right-0 ps-10'} md:space-x-8 py-4 text-white text-xl md:bg-transparent bg-black bg-opacity-25`}>
                         <li className='hover:text-green-500'><NavLink title='/home' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/">Home</NavLink></li>
                         <li className='hover:text-green-500'><NavLink title='/books' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/books">Books</NavLink></li>
                         <li className='hover:text-green-500'><NavLink title='/about' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/about">About</NavLink></li>
