@@ -9,8 +9,12 @@ import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 import Testimonial from './Testimonial/Testimonial';
+import { useLoaderData } from 'react-router-dom';
+import Chefs from './Chefs/Chefs';
 
 const Home = () => {
+    const chefs = useLoaderData();
+    // console.log(chefs)
     const [food, setFood] = useState([]);
     useEffect(() => {
         fetch('http://localhost:5000/slider')
@@ -66,6 +70,14 @@ const Home = () => {
                             </SwiperSlide>)
                         }
                     </Swiper>
+                </div>
+            </div>
+            <div className='my-20'>
+                <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>Our Most talented Chefs</h2>
+                <div className='grid md:grid-cols-3 gap-6 w-full mx-6 md:w-4/5 md:mx-auto'>
+                    {
+                        chefs.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
+                    }
                 </div>
             </div>
             <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>What People Said About Us</h2>
