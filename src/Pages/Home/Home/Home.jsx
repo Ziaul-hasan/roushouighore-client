@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import coverimg from '../../../assets/chef 2 flip.png';
 import './Home.css';
-import bgimg from '../../../assets/chef background image overlay.jpg';
+import bgimg from '../../../assets/chef background image overlay (1).jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/effect-coverflow";
