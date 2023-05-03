@@ -1,12 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import './Login.css';
 import bgimg from '../../assets/chef background image overlay (1).jpg';
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+    const {signInUser} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
     const [show, setShow] = useState(false)
 
     const handleLogin = event => {
@@ -15,6 +19,18 @@ const Login = () => {
         const email = form.email.value
         const password = form.password.value
         console.log(email, password)
+
+        const from = location.state?.from?.pathname || '/';
+
+        signInUser(email, password)
+        .then(result => {
+            const loggedUser = result.user;
+            console.log(loggedUser)
+            navigate(from, {replace: true})
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
     return (
         <div>

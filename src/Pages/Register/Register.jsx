@@ -1,11 +1,13 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import bgimg from '../../assets/chef background image overlay (1).jpg';
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Register = () => {
+    const {createUser} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [accept, setAccept] = useState(false);
 
@@ -17,6 +19,15 @@ const Register = () => {
         const password = form.password.value
         const url = form.url.value
         console.log(name, email, password, url);
+
+        createUser(email, password)
+        .then(result => {
+            const createUser = result.user;
+            console.log(createUser);
+        })
+        .catch(error => {
+            console.log(error)
+        })
     }
     const handleAccept = event =>{
         setAccept(event.target.checked)
