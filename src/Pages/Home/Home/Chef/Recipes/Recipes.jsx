@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 import { HiHeart } from "react-icons/hi";
+import toast from 'react-hot-toast';
 
 import '@smastrom/react-rating/style.css'
 
@@ -10,7 +11,7 @@ const Recipes = ({ recipe }) => {
     const [favourite, setFavourite] = useState(false);
     const handleFavourite = event => {
         setFavourite(true)
-        alert('Added as a favourite dish')
+        toast.success('Added as your favourite dish')
     }
     const { name, image, ingredients, cooking_methods, ratings } = recipe
     return (
