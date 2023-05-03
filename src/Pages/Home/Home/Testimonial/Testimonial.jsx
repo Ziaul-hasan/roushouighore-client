@@ -15,7 +15,7 @@ const Testimonial = () => {
             .then(data => setTestimonials(data))
     }, [])
     return (
-        <div className='border-y-2 border-y-yellow-300 m-8 md:my-10 md:mx-20'>
+        <div className='border-y-2 border-y-yellow-300 mx-4 my-6 md:my-10 md:mx-6'>
             <Swiper
                 effect={'coverflow'}
                 grabCursor={true}

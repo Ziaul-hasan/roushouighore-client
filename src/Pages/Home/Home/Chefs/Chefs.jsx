@@ -8,7 +8,7 @@ const Chefs = ({chef}) => {
     // eslint-disable-next-line react/prop-types
     const {id, name, image, years_of_experience, no_of_recipes, likes} = chef;
     return (
-        <div className='border-2 border-yellow-500 rounded-lg p-6 cbg'>
+        <div className='border-2 border-yellow-300 rounded-xl p-6 cbg shadow-lg shadow-yellow-300'>
             <img className='w-full h-96 object-contain' src={image} alt="" />
             <h2 className='text-xl md:text-3xl text-red-600 font-semibold my-2'>{name}</h2>
             <h2 className='text-base md:text-lg text-gray-700 font-medium my-2'> <HiBriefcase className='inline-block text-red-600 text-lg mx-2'></HiBriefcase> Experiences: <span className='text-lg font-medium text-gray-600'>{years_of_experience} years</span></h2>

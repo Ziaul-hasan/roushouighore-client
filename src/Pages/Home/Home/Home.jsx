@@ -11,6 +11,7 @@ import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 import Testimonial from './Testimonial/Testimonial';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from './Chefs/Chefs';
+import aboutimg from '../../../assets/chefs about img.jpeg';
 
 const Home = () => {
     const chefs = useLoaderData();
@@ -72,16 +73,27 @@ const Home = () => {
                     </Swiper>
                 </div>
             </div>
+            <div className='my-20 flex flex-col-reverse md:flex-row justify-between items-center gap-6 w-full md:w-4/5 md:mx-auto'>
+                <div className='w-full md:w-3/5 '>
+                    <img className='' src={aboutimg} alt="" />
+                </div>
+                <div className='w-full md:w-3/5'>
+                    <h2 className='text-red-600 text-2xl md:text-4xl font-semibold my-4'>Our Commitment</h2>
+                    <p className='text-base md:text-lg font-normal leading-10'> RoshouiGhore pushes the envelope of Dhaka cuisine. Taking its influences from our team members’ culinary roots, RoshouiGhore blends traditional and innovative techniques to create unique offerings using local ingredients in all of its dishes. RoshouiGhore is grounded in hospitality with our staff’s commitment to providing you with a memorable experience each time you walk through our door. RoshouiGhore offers menus for Lunch and Dinner. The restaurant has a local cultural atmosphere with Bangladeshi ornaments and music. Within a year of its opening, RoshouiGhore has been recognised for its quality of food and excellent service.</p>
+                </div>
+            </div>
             <div className='my-20'>
                 <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>Our Most talented Chefs</h2>
-                <div className='grid md:grid-cols-3 gap-6 w-full mx-6 md:w-4/5 md:mx-auto'>
+                <div className='grid md:grid-cols-3 gap-8 w-full mx-6 md:w-4/5 md:mx-auto'>
                     {
                         chefs.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
                     }
                 </div>
             </div>
-            <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>What People Said About Us</h2>
-            <Testimonial></Testimonial>
+            <div className='w-full md:w-4/5 md:mx-auto'>
+                <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>What People Said About Us</h2>
+                <Testimonial></Testimonial>
+            </div>
         </div>
     );
 };
