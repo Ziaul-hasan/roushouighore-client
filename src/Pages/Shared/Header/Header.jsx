@@ -23,8 +23,9 @@ const Header = () => {
                     </div>
                     <ul className={`md:inline-flex absolute md:static duration-100 ${open ? 'top-20 left-0 right-0 ps-10' : '-top-44 left-0 right-0 ps-10'} md:space-x-8 py-4 text-white text-xl md:bg-transparent bg-black bg-opacity-25`}>
                         <li className='hover:text-green-500'><NavLink title='/home' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/">Home</NavLink></li>
-                        <li className='hover:text-green-500'><NavLink title='/books' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/books">Books</NavLink></li>
-                        <li className='hover:text-green-500'><NavLink title='/about' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/about">About</NavLink></li>
+                        <li className='hover:text-green-500'><NavLink title='/blogs' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/blogs">Blogs</NavLink></li>
+                        <li className='hover:text-green-500'><NavLink title='/terms' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/terms">Terms & Condition</NavLink></li>
+                        <button className='px-4 py-1 bg-yellow-600 rounded-md text-white'><Link to='/login'>Login</Link></button>
                     </ul>
                 </div>
             </div>
