@@ -12,6 +12,7 @@ import Testimonial from './Testimonial/Testimonial';
 import { useLoaderData } from 'react-router-dom';
 import Chefs from './Chefs/Chefs';
 import aboutimg from '../../../assets/chefs about img.jpeg';
+import InsideBanner from './Inside banner/InsideBanner';
 
 const Home = () => {
     const chefs = useLoaderData();
@@ -73,8 +74,8 @@ const Home = () => {
                     </Swiper>
                 </div>
             </div>
-            <div className='my-20 flex flex-col-reverse md:flex-row justify-between items-center gap-6 w-full md:w-4/5 md:mx-auto'>
-                <div className='w-full md:w-3/5 '>
+            <div className='my-10 md:my-20 flex flex-col-reverse md:flex-row justify-between items-center gap-6 w-5/6 mx-auto'>
+                <div className='md:w-3/5 '>
                     <img className='' src={aboutimg} alt="" />
                 </div>
                 <div className='w-full md:w-3/5'>
@@ -84,11 +85,14 @@ const Home = () => {
             </div>
             <div className='my-20'>
                 <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>Our Most talented Chefs</h2>
-                <div className='grid md:grid-cols-3 gap-8 w-full mx-6 md:w-4/5 md:mx-auto'>
+                <div className='grid md:grid-cols-3 gap-8 w-5/6 md:w-4/5 mx-auto'>
                     {
                         chefs.map(chef => <Chefs key={chef.id} chef={chef}></Chefs>)
                     }
                 </div>
+            </div>
+            <div className='my-10 h-[200px] md:h-[300px] banner-bg'>
+                <InsideBanner></InsideBanner>
             </div>
             <div className='w-full md:w-4/5 md:mx-auto'>
                 <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>What People Said About Us</h2>
