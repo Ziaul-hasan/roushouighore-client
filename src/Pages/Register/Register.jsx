@@ -7,6 +7,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 
 const Register = () => {
     const [show, setShow] = useState(false)
+    const [accept, setAccept] = useState(false);
 
     const handleRegister = event => {
         event.preventDefault();
@@ -16,6 +17,9 @@ const Register = () => {
         const password = form.password.value
         const url = form.url.value
         console.log(name, email, password, url);
+    }
+    const handleAccept = event =>{
+        setAccept(event.target.checked)
     }
     return (
         <div>
@@ -39,7 +43,11 @@ const Register = () => {
                         <label htmlFor="url">Photo Url</label>
                         <input type="text" name="url" id="" placeholder='Your photo url' />
                     </div>
-                    <input type="submit" value="Register" className='w-[345px] py-4 bg-green-500 rounded-md text-xl font-semibold text-white my-4 cursor-pointer' />
+                    <div>
+                        <input onClick={handleAccept} type="checkbox" name="check" id="" />
+                        <span className='mx-3'>Accept Our <Link to='/terms' className='text-white font-semibold'>terms and condition</Link></span>
+                    </div>
+                    <button disabled={!accept} className={`w-[345px] py-3 ${accept ? 'bg-green-500' : 'bg-gray-500'} rounded-md text-xl font-semibold text-white my-4`} >Register</button>
                 </form>
                 <p><small className='text-base'>Already have an account? Please <Link className='text-white font-semibold' to="/login">Login</Link></small></p>
                 <div className='text-center'>
