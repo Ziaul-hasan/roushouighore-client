@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useState } from 'react';
 import logo from '../../../assets/chef logo.png';
-import bgimg from '../../../assets/chef background image overlay.jpg';
 import { Link, NavLink } from 'react-router-dom';
 import { HiMenuAlt3, HiX } from "react-icons/hi";
 import './Header.css'
@@ -28,9 +27,6 @@ const Header = () => {
                         <button className='px-4 py-1 bg-yellow-600 rounded-md text-white'><Link to='/login'>Login</Link></button>
                     </ul>
                 </div>
-            </div>
-            <div className='background-img'>
-                <img className='absolute top-0 z-0' src={bgimg} alt="" />
             </div>
         </div>
     );

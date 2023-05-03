@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import coverimg from '../../../assets/chef 2 flip.png';
 import './Home.css';
+import bgimg from '../../../assets/chef background image overlay.jpg';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/effect-coverflow";
@@ -97,6 +98,9 @@ const Home = () => {
             <div className='w-full md:w-4/5 md:mx-auto'>
                 <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>What People Said About Us</h2>
                 <Testimonial></Testimonial>
+            </div>
+            <div className='background-img'>
+                <img className='absolute top-0 z-0' src={bgimg} alt="" />
             </div>
         </div>
     );
