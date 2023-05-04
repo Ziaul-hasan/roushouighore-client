@@ -1,0 +1,10 @@
+.footer-section{
+    padding: 40px 10px;
+    background-image: url(/public/High_resolution_wallpaper_background_ID_77700653212.jpg);
+    background-color: rgba(20, 14, 6, 0.938);
+    background-blend-mode: multiply;
+    opacity: .9;
+    background-position: center;
+    background-size: cover;
+
+}

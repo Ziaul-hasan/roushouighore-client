@@ -46,7 +46,7 @@ const Chef = () => {
                         // onSlideChange={handleSlideChange}
                         >
                             {
-                                special_recipes.map(recipe => <SwiperSlide key={recipe.id} >
+                                special_recipes?.map(recipe => <SwiperSlide key={recipe.id} >
                                     {
                                         ({ isActive }) => (
                                             <div className={`relative ${isActive && 'border-4 border-yellow-500'} border-2 border-blue-500 rounded-xl w-[250px] h-[150px] md:h-[350px] md:w-[500px] bg-transparent bg-cover bg-center ms-12 md:ms-2 mt-5 md:mt-32`}>
@@ -82,7 +82,7 @@ const Chef = () => {
                     <h2 className='text-center text-red-600 text-2xl md:text-4xl font-semibold my-10'>Special Recipes</h2>
                     <div className='grid md:grid-cols-2 gap-10 w-5/6 md:w-4/5 mx-auto'>
                         {
-                            special_recipes.map(recipe => <Recipes key={recipe.id} recipe={recipe}></Recipes>)
+                            special_recipes?.map(recipe => <Recipes key={recipe.id} recipe={recipe}></Recipes>)
                         }
                     </div>
                 </div>

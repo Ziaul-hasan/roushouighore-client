@@ -15,7 +15,7 @@ const Chefs = ({chef}) => {
             <h2 className='text-base md:text-lg text-gray-700 font-medium my-2'> <HiBriefcase className='inline-block text-red-600 text-lg mx-2'></HiBriefcase> Experiences: <span className='text-lg font-medium text-gray-600'>{years_of_experience} years</span></h2>
             <h2 className='text-base md:text-lg text-gray-700 font-medium my-2'> <HiClipboardCheck className='inline-block text-red-600 text-lg mx-2'></HiClipboardCheck> No of Recipes: <span className='text-lg font-medium text-gray-600'>{no_of_recipes}</span></h2>
             <h2 className='text-base md:text-lg text-gray-700 font-medium my-2'> <HiHeart className='inline-block text-red-600 text-lg mx-2'></HiHeart> Likes: <span className='text-lg font-medium text-gray-600'>{likes}</span></h2>
-            <Link to={`/${id}`}><button className='px-5 py-2 rounded-3xl bg-red-600 text-white text-xl font-medium hover:bg-green-400 w-full my-2'>View Recipes</button></Link>
+            <Link to={`/chef/${id}`}><button className='px-5 py-2 rounded-3xl bg-red-600 text-white text-xl font-medium hover:bg-green-400 w-full my-2'>View Recipes</button></Link>
         </div>
     );
 };

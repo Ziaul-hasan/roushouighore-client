@@ -76,7 +76,7 @@ const Home = () => {
                 </div>
             </div>
             <div className='my-10 md:my-20 flex flex-col-reverse md:flex-row justify-between items-center gap-6 w-5/6 mx-auto'>
-                <div className='md:w-3/5 '>
+                <div className='full md:w-3/5 '>
                     <img className='' src={aboutimg} alt="" />
                 </div>
                 <div className='w-full md:w-3/5'>

@@ -15,7 +15,7 @@ const Recipes = ({ recipe }) => {
     }
     const { name, image, ingredients, cooking_methods, ratings } = recipe
     return (
-        <div className='border-2 border-yellow-300 rounded-xl p-4 cbg shadow-lg shadow-yellow-300'>
+        <div className='border-2 border-yellow-300 rounded-xl p-4 cbg shadow-lg shadow-yellow-300 my-5'>
             <img className='rounded-xl md:h-[450px] object-cover' src={image} alt="" />
             <div className='px-5 py-4'>
                 <h2 className='text-xl md:text-4xl font-bold text-red-600 my-3'>{name}</h2>

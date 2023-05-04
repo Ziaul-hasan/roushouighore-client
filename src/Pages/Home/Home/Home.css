@@ -1,3 +1,6 @@
+html, body {
+    overflow-x: hidden;
+  }
 .background-img img{
     height: 700px;
     width: 100%;
@@ -17,7 +20,7 @@
     padding: 30px;
 }
 .banner-bg{
-    background-image: url(/src/assets/10\ restaurants\ in\ Mumbai\ that\ offer\ the\ best\ sunset\ views.jpg);
+    background-image: url(/10\ restaurants\ in\ Mumbai\ that\ offer\ the\ best\ sunset\ views.jpg);
     background-color: rgb(151, 168, 0);
     background-blend-mode: multiply;
     opacity: .75;
