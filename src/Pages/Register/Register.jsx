@@ -7,6 +7,7 @@ import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
+import './Register.css'
 
 const Register = () => {
     const { createUser, updateUserData, googleLogin, githubLogin } = useContext(AuthContext)
@@ -105,7 +106,7 @@ const Register = () => {
                         <input onClick={handleAccept} type="checkbox" name="check" id="" />
                         <span className='mx-3'>Accept Our <Link to='/terms' className='text-white font-semibold'>terms and condition</Link></span>
                     </div>
-                    <button disabled={!accept} className={`w-[345px] py-3 ${accept ? 'bg-green-500' : 'bg-gray-500'} rounded-md text-xl font-semibold text-white my-4`} >Register</button>
+                    <button disabled={!accept} className={`w-[270px] md:w-[345px] py-3 ${accept ? 'bg-green-500' : 'bg-gray-500'} rounded-md text-xl font-semibold text-white my-4 ms-3`} >Register</button>
                 </form>
                 <p className='text-yellow-300 font-medium'>{error}</p>
                 <p><small className='text-base'>Already have an account? Please <Link className='text-white font-semibold' to="/login">Login</Link></small></p>

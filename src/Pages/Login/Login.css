@@ -52,3 +52,29 @@
     width: 100%;
     object-fit: cover;
 }
+
+@media screen and (max-width: 640px) {
+    .form-title{
+        font-size: 30px;
+        font-weight: 600;
+    }
+    .form-container{
+        width: 320px;
+        padding: 15px;
+    }
+    .form-control label{
+        font-size: 16px;
+        margin-left: 8px;
+    }
+    .form-control input{
+        width: 270px;
+        margin-left: 8px;
+    }
+    .btn-submit{
+        width: 270px;
+        margin-left: 8px;
+    }
+    .background-img-login img{
+        height: 700px;
+    }
+}

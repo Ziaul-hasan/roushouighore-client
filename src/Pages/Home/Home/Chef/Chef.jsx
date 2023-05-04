@@ -49,7 +49,7 @@ const Chef = () => {
                                 special_recipes.map(recipe => <SwiperSlide key={recipe.id} >
                                     {
                                         ({ isActive }) => (
-                                            <div className={`relative ${isActive && 'border-4 border-yellow-500'} border-2 border-blue-500 rounded-xl w-[250px] h-[150px] md:h-[350px] md:w-[500px] bg-transparent bg-cover bg-center ms-20 md:ms-2 mt-5 md:mt-32`}>
+                                            <div className={`relative ${isActive && 'border-4 border-yellow-500'} border-2 border-blue-500 rounded-xl w-[250px] h-[150px] md:h-[350px] md:w-[500px] bg-transparent bg-cover bg-center ms-12 md:ms-2 mt-5 md:mt-32`}>
                                                 <img className='w-full h-full object-cover rounded-xl' src={recipe.image} alt="" />
                                                 <h2 className='hidden md:block md:text-3xl mt-2 md:mt-4 font-normal md:font-semibold text-center text-white'>{recipe.name}</h2>
                                             </div>
@@ -69,7 +69,7 @@ const Chef = () => {
                         <div className='w-full md:w-3/5'>
                             <img src={image} alt="" />
                         </div>
-                        <div className='w-full md:w-3/5 px-5'>
+                        <div className='w-full md:w-3/5 px-5 py-4'>
                             <h2 className='text-2xl md:text-5xl font-bold text-red-600'>{name}</h2>
                             <h2 className='text-xl md:text-2xl text-gray-700 font-medium my-2'> <HiBriefcase className='inline-block text-red-600 text-xl mx-2'></HiBriefcase> Experiences: <span className='text-xl font-medium text-gray-600'>{years_of_experience} years</span></h2>
                             <h2 className='text-xl md:text-2xl text-gray-700 font-medium my-2'> <HiClipboardCheck className='inline-block text-red-600 text-xl mx-2'></HiClipboardCheck> No of Recipes: <span className='text-xl font-medium text-gray-600'>{no_of_recipes}</span></h2>

@@ -1,5 +1,11 @@
-.background-img-register{
+.background-img-register img{
     height: fit-content;
     width: 100%;
     object-fit: cover;
+}
+
+@media screen and (max-width: 640px) {
+    .background-img-register img{
+        height: 100vh;
+    }
 }
