@@ -20,7 +20,7 @@ const Footer = () => {
                 </div>
                 <div>
                     <h2 className='text-2xl md:text-4xl text-white font-bold mb-6'>Follow Us On</h2>
-                    <p className='flex space-x-4 text-white'>
+                    <p className='flex space-x-4 text-white justify-center md:justify-start'>
                         <FaFacebookF className='w-[32px] h-[32px]'></FaFacebookF>
                         <FaTwitter className='w-[32px] h-[32px]'></FaTwitter>
                         <FaInstagramSquare className='w-[32px] h-[32px]'></FaInstagramSquare>
