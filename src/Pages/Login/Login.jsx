@@ -65,7 +65,7 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='logmargin'>
             <div className='form-container relative z-10'>
                 <h2 className='form-title'>Please Login</h2>
                 <form onSubmit={handleLogin}>

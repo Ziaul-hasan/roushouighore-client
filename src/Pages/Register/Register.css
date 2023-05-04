@@ -3,6 +3,9 @@
     width: 100%;
     object-fit: cover;
 }
+.margin{
+    margin-bottom: 120px;
+}
 
 @media screen and (max-width: 640px) {
     .background-img-register img{

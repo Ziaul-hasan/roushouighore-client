@@ -81,7 +81,7 @@ const Register = () => {
         setAccept(event.target.checked)
     }
     return (
-        <div>
+        <div className='margin'>
             <div className='form-container relative z-10'>
                 <h2 className='form-title'>Please Register</h2>
                 <form onSubmit={handleRegister}>
