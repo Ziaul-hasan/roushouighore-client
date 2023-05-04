@@ -6,13 +6,16 @@ import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider';
 import { updateProfile } from 'firebase/auth';
+import { toast } from 'react-hot-toast';
 
 const Register = () => {
     const {createUser, updateUserData} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [accept, setAccept] = useState(false);
+    const [error, setError] = useState('')
 
     const handleRegister = event => {
+        setError('');
         event.preventDefault();
         const form = event.target
         const name = form.name.value
@@ -21,14 +24,27 @@ const Register = () => {
         const url = form.url.value
         console.log(name, email, password, url);
 
+        if(password.length < 6){
+            return setError('Password should have at least six character')
+        }
+        else if(!/(?=.*[A-Z])/.test(password)){
+            return setError('Provide atleast one uppercase letter')
+        }
+        else if(!/(?=.*[0-9])/.test(password)){
+            return setError('Provide atleast one digit')
+        }
+
         createUser(email, password)
         .then(result => {
             const createUser = result.user;
             console.log(createUser);
             updateUserData(result.user, name, url)
+            setError('')
+            form.reset();
+            toast.success('Successfully Registered')
         })
         .catch(error => {
-            console.log(error)
+            setError(error.message)
         })
     }
 
@@ -63,6 +79,7 @@ const Register = () => {
                     </div>
                     <button disabled={!accept} className={`w-[345px] py-3 ${accept ? 'bg-green-500' : 'bg-gray-500'} rounded-md text-xl font-semibold text-white my-4`} >Register</button>
                 </form>
+                <p className='text-yellow-300 font-medium'>{error}</p>
                 <p><small className='text-base'>Already have an account? Please <Link className='text-white font-semibold' to="/login">Login</Link></small></p>
                 <div className='text-center'>
                     <button className='px-5 py-2 rounded-md bg-white text-lg font-semibold items-center w-full my-5'> <FaGoogle className='inline-block mx-2 text-green-600'></FaGoogle> Sign in With Google</button>

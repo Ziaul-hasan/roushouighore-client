@@ -6,14 +6,17 @@ import bgimg from '../../assets/chef background image overlay (1).jpg';
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider';
+import { toast } from 'react-hot-toast';
 
 const Login = () => {
     const {signInUser} = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
     const [show, setShow] = useState(false)
+    const [error, setError] = useState('');
 
     const handleLogin = event => {
+        setError('')
         event.preventDefault();
         const form = event.target
         const email = form.email.value
@@ -27,9 +30,11 @@ const Login = () => {
             const loggedUser = result.user;
             console.log(loggedUser)
             navigate(from, {replace: true})
+            setError('')
+            toast.success('User successfully loggedin')
         })
         .catch(error => {
-            console.log(error)
+            setError(error?.message);
         })
     }
     return (
@@ -48,6 +53,7 @@ const Login = () => {
                     <p style={{ cursor: 'pointer', marginTop: '' }} onClick={() => setShow(!show)}> {show ? <span><HiEyeOff className='ms-auto -mt-14 me-6'></HiEyeOff></span> : <span><HiEye className='ms-auto -mt-14 me-6'></HiEye></span>}</p>
                     <input type="submit" value="Log in" className='btn-submit' />
                 </form>
+                <p className='text-yellow-300 font-medium'>{error}</p>
                 <p><small className='text-base'>New to the site? Please <Link className='text-white font-semibold' to="/register">Register</Link></small></p>
                 <div className='text-center'>
                     <button className='px-5 py-2 rounded-md bg-white text-lg font-semibold items-center w-full my-5'> <FaGoogle className='inline-block mx-2 text-green-600'></FaGoogle> Sign in With Google</button>
