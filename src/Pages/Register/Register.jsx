@@ -5,9 +5,10 @@ import bgimg from '../../assets/chef background image overlay (1).jpg';
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../../Providers/AuthProvider';
+import { updateProfile } from 'firebase/auth';
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext)
+    const {createUser, updateUserData} = useContext(AuthContext)
     const [show, setShow] = useState(false)
     const [accept, setAccept] = useState(false);
 
@@ -24,11 +25,13 @@ const Register = () => {
         .then(result => {
             const createUser = result.user;
             console.log(createUser);
+            updateUserData(result.user, name, url)
         })
         .catch(error => {
             console.log(error)
         })
     }
+
     const handleAccept = event =>{
         setAccept(event.target.checked)
     }

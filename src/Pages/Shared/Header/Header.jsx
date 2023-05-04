@@ -35,7 +35,7 @@ const Header = () => {
                         <li className='hover:text-green-500'><NavLink title='/blogs' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/blogs">Blogs</NavLink></li>
                         <li className='hover:text-green-500'><NavLink title='/terms' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="/terms">Terms & Condition</NavLink></li>
                         {
-                            user && <li className='hover:text-green-500'><NavLink title='/terms' className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to="">{user.display}</NavLink></li>
+                            user && <li className='hover:text-green-500'><NavLink title={user.displayName} className={({ isActive, isPending }) => isActive ? 'text-green-400 font-bold' : ''} to=""> <img className='w-10 h-10 rounded-full border-2 border-yellow-500' src={user.photoURL} alt="" /> </NavLink></li>
                         }
 
                         {

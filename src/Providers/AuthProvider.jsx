@@ -2,7 +2,7 @@
 /* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut, updateProfile } from "firebase/auth";
 import app from '../firebase/firebasse';
 
 export const AuthContext = createContext(null)
@@ -38,8 +38,22 @@ const AuthProvider = ({ children }) => {
             unsubscirbe()
         }
     }, [])
+
+    const updateUserData = (user, name, url) =>{
+        updateProfile(user, {
+            displayName: name,
+            photoURL: url
+        })
+        .then(() =>{
+            console.log('user name and photo updated')
+        })
+        .then(error =>{
+            console.log(error)
+        })
+    }
+
     // const user = { display: 'Muri Khan' }
-    const authInfo = { user, loading, createUser, signInUser, logOut }
+    const authInfo = { user, loading, createUser, signInUser, logOut, updateUserData }
 
     return (
         <AuthContext.Provider value={authInfo}>
