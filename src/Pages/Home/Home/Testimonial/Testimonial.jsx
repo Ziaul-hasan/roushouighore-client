@@ -10,7 +10,7 @@ import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 const Testimonial = () => {
     const [testimonials, setTestimonials] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/testimonial')
+        fetch('https://assignment-chef-receipe-server-ziaul-hasan.vercel.app/testimonial')
             .then(res => res.json())
             .then(data => setTestimonials(data))
     }, [])

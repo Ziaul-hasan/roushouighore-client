@@ -20,7 +20,7 @@ const Home = () => {
     // console.log(chefs)
     const [food, setFood] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/slider')
+        fetch('https://assignment-chef-receipe-server-ziaul-hasan.vercel.app/slider')
             .then(res => res.json())
             .then(data => setFood(data))
     }, [])

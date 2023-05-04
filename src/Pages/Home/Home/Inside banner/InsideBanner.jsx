@@ -9,7 +9,7 @@ import { Autoplay, EffectCoverflow, Navigation, Pagination } from "swiper";
 const InsideBanner = () => {
     const [quotes, setQuotes] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/slider')
+        fetch('https://assignment-chef-receipe-server-ziaul-hasan.vercel.app/slider')
             .then(res => res.json())
             .then(data => setQuotes(data))
     }, [])

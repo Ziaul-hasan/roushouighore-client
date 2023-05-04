@@ -1,0 +1,12 @@
+.background-img-blog img{
+    height: 550px;
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+
+@media screen and (max-width: 640px) {
+    .background-img-blog img{
+        height: 300px;
+    }
+}
