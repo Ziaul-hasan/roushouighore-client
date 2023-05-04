@@ -39,7 +39,9 @@ const Register = () => {
 
         createUser(email, password)
             .then(result => {
+                const from = location.state?.from?.pathname || '/';
                 const createUser = result.user;
+                navigate(from, { replace: true })
                 console.log(createUser);
                 updateUserData(result.user, name, url)
                 setError('')
