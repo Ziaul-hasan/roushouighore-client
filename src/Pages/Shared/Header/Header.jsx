@@ -20,10 +20,10 @@ const Header = () => {
     return (
         <div>
             <div className='flex justify-between items-center p-4 md:px-20 md:py-3 relative z-20 bg-black bg-opacity-25'>
-                <div className='flex space-x-3 items-center'>
+                <Link to='/'><div className='flex space-x-3 items-center'>
                     <img className='w-12 h-12 md:w-20 md:h-20' src={logo} alt="" />
                     <h1 className='text-xl md:text-3xl font-bold text-red-600'>RoshouiGhore</h1>
-                </div>
+                </div></Link>
                 <div>
                     <div onClick={() => setOpen(!open)}>
                         {
