@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import bgimg from '../../assets/chef background image overlay (1).jpg';
 import { HiEye, HiEyeOff } from "react-icons/hi";
 import { FaGoogle, FaGithub } from "react-icons/fa";
@@ -9,7 +9,9 @@ import { updateProfile } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
 
 const Register = () => {
-    const {createUser, updateUserData} = useContext(AuthContext)
+    const { createUser, updateUserData, googleLogin } = useContext(AuthContext)
+    const navigate = useNavigate()
+    const location = useLocation()
     const [show, setShow] = useState(false)
     const [accept, setAccept] = useState(false);
     const [error, setError] = useState('')
@@ -24,31 +26,44 @@ const Register = () => {
         const url = form.url.value
         console.log(name, email, password, url);
 
-        if(password.length < 6){
+        if (password.length < 6) {
             return setError('Password should have at least six character')
         }
-        else if(!/(?=.*[A-Z])/.test(password)){
+        else if (!/(?=.*[A-Z])/.test(password)) {
             return setError('Provide atleast one uppercase letter')
         }
-        else if(!/(?=.*[0-9])/.test(password)){
+        else if (!/(?=.*[0-9])/.test(password)) {
             return setError('Provide atleast one digit')
         }
 
         createUser(email, password)
-        .then(result => {
-            const createUser = result.user;
-            console.log(createUser);
-            updateUserData(result.user, name, url)
-            setError('')
-            form.reset();
-            toast.success('Successfully Registered')
-        })
-        .catch(error => {
-            setError(error.message)
-        })
+            .then(result => {
+                const createUser = result.user;
+                console.log(createUser);
+                updateUserData(result.user, name, url)
+                setError('')
+                form.reset();
+                toast.success('Successfully Registered')
+            })
+            .catch(error => {
+                setError(error.message)
+            })
     }
 
-    const handleAccept = event =>{
+    const handleGoogleLogin = () => {
+        const from = location.state?.from?.pathname || '/';
+        googleLogin()
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true })
+                console.log(user)
+            })
+            .then(error => {
+                console.log(error)
+            })
+    }
+
+    const handleAccept = event => {
         setAccept(event.target.checked)
     }
     return (
@@ -82,7 +97,7 @@ const Register = () => {
                 <p className='text-yellow-300 font-medium'>{error}</p>
                 <p><small className='text-base'>Already have an account? Please <Link className='text-white font-semibold' to="/login">Login</Link></small></p>
                 <div className='text-center'>
-                    <button className='px-5 py-2 rounded-md bg-white text-lg font-semibold items-center w-full my-5'> <FaGoogle className='inline-block mx-2 text-green-600'></FaGoogle> Sign in With Google</button>
+                    <button onClick={handleGoogleLogin} className='px-5 py-2 rounded-md bg-white text-lg font-semibold items-center w-full my-5'> <FaGoogle className='inline-block mx-2 text-green-600'></FaGoogle> Sign in With Google</button>
                 </div>
                 <div className='text-center'>
                     <button className='px-5 py-2 rounded-md bg-white text-lg font-semibold items-center w-full'> <FaGithub className='inline-block mx-2'></FaGithub> Sign in With GitHub</button>
