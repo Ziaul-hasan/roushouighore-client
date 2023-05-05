@@ -50,7 +50,7 @@ const Recipes = ({ recipe }) => {
                         <Rating className='inline-block' style={{ maxWidth: 100 }} value={ratings} readOnly /> <span className='text-base font-medium text-gray-400'>{ratings}</span>
                     </div>
                     <div>
-                        <button disabled={favourite} onClick={handleFavourite}>
+                        <button title='add to favourite' disabled={favourite} onClick={handleFavourite}>
                             <HiHeart className={`${favourite ? 'text-gray-500' : 'text-yellow-500'} text-3xl`}></HiHeart>
                         </button>
                     </div>
