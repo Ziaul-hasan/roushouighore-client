@@ -4,8 +4,10 @@ import React, { useState } from 'react';
 import { Rating } from '@smastrom/react-rating'
 import { HiHeart } from "react-icons/hi";
 import toast from 'react-hot-toast';
-
 import '@smastrom/react-rating/style.css'
+import LazyLoad from 'react-lazy-load';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 
 const Recipes = ({ recipe }) => {
     const [favourite, setFavourite] = useState(false);
@@ -15,8 +17,18 @@ const Recipes = ({ recipe }) => {
     }
     const { name, image, ingredients, cooking_methods, ratings } = recipe
     return (
-        <div className='border-2 border-yellow-300 rounded-xl p-4 cbg shadow-lg shadow-yellow-300 my-5'>
-            <img className='rounded-xl md:h-[450px] object-cover' src={image} alt="" />
+        <div className='border-2 border-yellow-300 rounded-xl p-4 cbg shadow-lg shadow-yellow-300 my-4'>
+            <LazyLoadImage 
+                className='rounded-xl md:h-[450px] object-cover'
+                alt={image.alt}
+                effect="blur"
+                delayMethod='scroll'
+                delayTime={600}
+                src={image}
+            >
+
+            </LazyLoadImage>
+            {/* <img className='rounded-xl md:h-[450px] object-cover' src={image} alt="" /> */}
             <div className='px-5 py-4'>
                 <h2 className='text-xl md:text-4xl font-bold text-red-600 my-3'>{name}</h2>
                 <div className='flex justify-between my-3'>

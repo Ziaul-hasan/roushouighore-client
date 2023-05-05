@@ -1,3 +1,11 @@
 /* .cbg{
     background-image: url(/src/assets/card\ background\ image.jpg);
 } */
+.LazyLoad {
+    opacity: .3;
+    transition: all .7s ease-in-out;
+  }
+  
+  .is-visible {
+    opacity: 1;
+  }
